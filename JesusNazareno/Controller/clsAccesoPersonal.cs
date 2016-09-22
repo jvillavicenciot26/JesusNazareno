@@ -190,24 +190,5 @@ namespace JesusNazareno.Controller
             }
             return dtComboCargos;
         }
-
-        public DataTable ConsultarTodoCargos()
-        {
-            con.Open();
-            MySqlDataAdapter mdaCargos = new MySqlDataAdapter();
-            DataTable dtCargos = new DataTable();
-            try
-            {
-                mdaCargos.SelectCommand = new MySqlCommand("consultatodocargos", con);
-                mdaCargos.SelectCommand.CommandType = CommandType.StoredProcedure;
-                mdaCargos.Fill(dtCargos);
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            return dtCargos;
-        }
     }
 }

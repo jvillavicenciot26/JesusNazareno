@@ -57,25 +57,6 @@ namespace JesusNazareno.Controller
             return dtFilRecursos;
         }
 
-        public DataTable ConsultarTodoTipoRecursos()
-        {
-            con.Open();
-            MySqlDataAdapter mdaTipoRecursos = new MySqlDataAdapter();
-            DataTable dtTipoRecursos = new DataTable();
-            try
-            {
-                mdaTipoRecursos.SelectCommand = new MySqlCommand("consultatodotiporecursos", con);
-                mdaTipoRecursos.SelectCommand.CommandType = CommandType.StoredProcedure;
-                mdaTipoRecursos.Fill(dtTipoRecursos);
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            return dtTipoRecursos;
-        }
-
         public DataTable LlenarComboTipoRecursos()
         {
             con.Open();

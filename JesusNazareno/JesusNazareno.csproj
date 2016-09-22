@@ -63,8 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\clsAccesoActividades.cs" />
+    <Compile Include="Controller\clsAccesoCargos.cs" />
     <Compile Include="Controller\clsAccesoPersonal.cs" />
     <Compile Include="Controller\clsAccesoRecursos.cs" />
+    <Compile Include="Controller\clsAccesoTipoRecursos.cs" />
     <Compile Include="Controller\clsConexion.cs" />
     <Compile Include="frmActividadesMantenimiento.cs">
       <SubType>Form</SubType>
@@ -127,9 +129,12 @@
       <DependentUpon>frmUsuariosMantenimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\clsActividad.cs" />
+    <Compile Include="Model\clsCargo.cs" />
     <Compile Include="Model\clsLogin.cs" />
     <Compile Include="Model\clsPersonal.cs" />
     <Compile Include="Model\clsRecurso.cs" />
+    <Compile Include="Model\clsTipoRecurso.cs" />
+    <Compile Include="Model\clsUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmActividadesMantenimiento.resx">

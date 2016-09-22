@@ -1,4 +1,5 @@
 ﻿using JesusNazareno.Controller;
+using JesusNazareno.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +21,34 @@ namespace JesusNazareno
 
         private void frmCargosPersonalMantenimiento_Load(object sender, EventArgs e)
         {
-            clsAccesoPersonal BD = new clsAccesoPersonal();
+            clsAccesoCargos BD = new clsAccesoCargos();
             dgvcargos.DataSource = BD.ConsultarTodoCargos();
+        }
+
+        private void btnregistrar_Click(object sender, EventArgs e)
+        {
+            clsAccesoCargos BD = new clsAccesoCargos();
+            clsCargo Car = new clsCargo();
+            Car.CodigoCargo = int.Parse(txtcodigocargo.Text.ToString());
+            Car.NombreCargo = txtnombrecargo.Text;
+            BD.RegistrarCargo(Car);
+        }
+
+        private void btnactualizar_Click(object sender, EventArgs e)
+        {
+            clsAccesoCargos BD = new clsAccesoCargos();
+            clsCargo Car = new clsCargo();
+            Car.CodigoCargo = int.Parse(txtcodigocargo.Text.ToString());
+            Car.NombreCargo = txtnombrecargo.Text;
+            BD.ActualizarCargo(Car);
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            clsAccesoCargos BD = new clsAccesoCargos();
+            clsCargo Car = new clsCargo();
+            Car.CodigoCargo = int.Parse(txtcodigocargo.Text.ToString());
+            BD.EliminarCargo(Car);
         }
     }
 }

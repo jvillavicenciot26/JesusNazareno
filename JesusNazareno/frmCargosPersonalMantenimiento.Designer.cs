@@ -39,6 +39,7 @@
             this.txtcodigocargo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvcargos = new System.Windows.Forms.DataGridView();
+            this.btneliminar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcargos)).BeginInit();
@@ -46,12 +47,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btneliminar);
             this.groupBox2.Controls.Add(this.btnactualizar);
             this.groupBox2.Controls.Add(this.btnregistrar);
             this.groupBox2.Controls.Add(this.btnNuevo);
             this.groupBox2.Location = new System.Drawing.Point(12, 104);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(235, 56);
+            this.groupBox2.Size = new System.Drawing.Size(235, 81);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operaciones";
@@ -64,6 +66,7 @@
             this.btnactualizar.TabIndex = 2;
             this.btnactualizar.Text = "Actualizar";
             this.btnactualizar.UseVisualStyleBackColor = true;
+            this.btnactualizar.Click += new System.EventHandler(this.btnactualizar_Click);
             // 
             // btnregistrar
             // 
@@ -73,6 +76,7 @@
             this.btnregistrar.TabIndex = 1;
             this.btnregistrar.Text = "Guardar";
             this.btnregistrar.UseVisualStyleBackColor = true;
+            this.btnregistrar.Click += new System.EventHandler(this.btnregistrar_Click);
             // 
             // btnNuevo
             // 
@@ -134,14 +138,24 @@
             this.dgvcargos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvcargos.Location = new System.Drawing.Point(253, 12);
             this.dgvcargos.Name = "dgvcargos";
-            this.dgvcargos.Size = new System.Drawing.Size(162, 148);
+            this.dgvcargos.Size = new System.Drawing.Size(162, 173);
             this.dgvcargos.TabIndex = 5;
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.Location = new System.Drawing.Point(79, 48);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(67, 23);
+            this.btneliminar.TabIndex = 3;
+            this.btneliminar.Text = "Eliminar";
+            this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // frmCargosPersonalMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 170);
+            this.ClientSize = new System.Drawing.Size(427, 194);
             this.Controls.Add(this.dgvcargos);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -173,5 +187,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnactualizar;
         private System.Windows.Forms.DataGridView dgvcargos;
+        private System.Windows.Forms.Button btneliminar;
     }
 }

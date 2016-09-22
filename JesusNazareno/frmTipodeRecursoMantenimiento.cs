@@ -1,4 +1,5 @@
 ﻿using JesusNazareno.Controller;
+using JesusNazareno.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +21,36 @@ namespace JesusNazareno
 
         private void frmTipodeRecursoMantenimiento_Load(object sender, EventArgs e)
         {
-            clsAccesoRecursos BD = new clsAccesoRecursos();
+            clsAccesoTipoRecursos BD = new clsAccesoTipoRecursos();
             dtgtiporecurso.DataSource = BD.ConsultarTodoTipoRecursos();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            clsTipoRecurso TipRec = new clsTipoRecurso();
+            clsAccesoTipoRecursos BD = new clsAccesoTipoRecursos();
+            TipRec.CodigoTipoRecurso = int.Parse(txtcodigotipo.Text);
+            TipRec.NombreTipoRecurso = txtnombretipo.Text;
+            TipRec.EstadoTipoRecurso = cboestadotiporecurso.SelectedItem.ToString();
+            BD.RegistrarTipoRecurso(TipRec);
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            clsTipoRecurso TipRec = new clsTipoRecurso();
+            clsAccesoTipoRecursos BD = new clsAccesoTipoRecursos();
+            TipRec.CodigoTipoRecurso = int.Parse(txtcodigotipo.Text);
+            TipRec.NombreTipoRecurso = txtnombretipo.Text;
+            TipRec.EstadoTipoRecurso = cboestadotiporecurso.SelectedItem.ToString();
+            BD.ActualizarTipoRecurso(TipRec);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            clsTipoRecurso TipRec = new clsTipoRecurso();
+            clsAccesoTipoRecursos BD = new clsAccesoTipoRecursos();
+            TipRec.CodigoTipoRecurso = int.Parse(txtcodigotipo.Text);
+            BD.EliminarTipoRecurso(TipRec);
         }
     }
 }
