@@ -40,9 +40,9 @@ namespace JesusNazareno
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            clsAccesoRecursos BD = new clsAccesoRecursos();
-            cbotiporecurso.DataSource = BD.LlenarComboTipoRecursos();
-            cbotiporecurso.ValueMember = "NombreTipoRecurso";
+            //clsAccesoRecursos BD = new clsAccesoRecursos();
+            //cbotiporecurso.DataSource = BD.LlenarComboTipoRecursos();
+            //cbotiporecurso.ValueMember = "NombreTipoRecurso";
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -64,6 +64,26 @@ namespace JesusNazareno
             clsAccesoRecursos BD = new clsAccesoRecursos();
             Rec.CodigoRecurso = int.Parse(txtcodigorecurso.Text);
             BD.EliminarRecurso(Rec);
+        }
+
+        private void frmRecursosMantenimiento_Load(object sender, EventArgs e)
+        {
+            clsAccesoRecursos BD = new clsAccesoRecursos();
+            cbotiporecurso.DataSource = BD.LlenarComboTipoRecursos();
+            cbotiporecurso.ValueMember = "NombreTipoRecurso";
+        }
+
+        public void codigobusqueda (int codigo)
+        {
+            txtcodigorecurso.Text = codigo.ToString();
+            clsAccesoRecursos BD = new clsAccesoRecursos();
+            clsRecurso Rec = new clsRecurso();
+            Rec = BD.BuscarRecurso(codigo);
+            txtnombrerecurso.Text = Rec.NombreRecurso;
+            txtmarca.Text = Rec.MarcaRecurso;
+            txtserierecurso.Text = Rec.SerieRecurso;
+            cboestadorecurso.SelectedItem = Rec.EstadoRecurso;
+            cbotiporecurso.SelectedIndex = (Rec.CodigoTipRecurso - 1);
         }
     }
 }

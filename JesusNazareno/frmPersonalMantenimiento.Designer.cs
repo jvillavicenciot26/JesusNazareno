@@ -135,6 +135,14 @@
             // cbocargopersonal
             // 
             this.cbocargopersonal.FormattingEnabled = true;
+            this.cbocargopersonal.Items.AddRange(new object[] {
+            "DIRECTOR",
+            "ADMINISTRADOR",
+            "PSICOLOGA",
+            "DOCENTE",
+            "AUXILIAR",
+            "COORDINADOR",
+            "DOCENTE AIP"});
             this.cbocargopersonal.Location = new System.Drawing.Point(412, 25);
             this.cbocargopersonal.Name = "cbocargopersonal";
             this.cbocargopersonal.Size = new System.Drawing.Size(102, 21);
@@ -236,6 +244,7 @@
             this.txtcodpersonal.Name = "txtcodpersonal";
             this.txtcodpersonal.Size = new System.Drawing.Size(56, 20);
             this.txtcodpersonal.TabIndex = 1;
+            this.txtcodpersonal.TextChanged += new System.EventHandler(this.txtcodpersonal_TextChanged);
             // 
             // label1
             // 

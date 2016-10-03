@@ -67,6 +67,7 @@
     <Compile Include="Controller\clsAccesoPersonal.cs" />
     <Compile Include="Controller\clsAccesoRecursos.cs" />
     <Compile Include="Controller\clsAccesoTipoRecursos.cs" />
+    <Compile Include="Controller\clsAccesoUsuarios.cs" />
     <Compile Include="Controller\clsConexion.cs" />
     <Compile Include="frmActividadesMantenimiento.cs">
       <SubType>Form</SubType>

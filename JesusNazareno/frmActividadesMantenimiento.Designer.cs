@@ -35,7 +35,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtEstado = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtnombreactividad = new System.Windows.Forms.TextBox();
             this.rtbdetalle = new System.Windows.Forms.RichTextBox();
@@ -44,6 +43,7 @@
             this.txtcodigoactividad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvActividades = new System.Windows.Forms.DataGridView();
+            this.cboestadoactividad = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividades)).BeginInit();
@@ -55,7 +55,7 @@
             this.groupBox2.Controls.Add(this.btnActualizar);
             this.groupBox2.Controls.Add(this.btnGuardar);
             this.groupBox2.Controls.Add(this.btnNuevo);
-            this.groupBox2.Location = new System.Drawing.Point(52, 126);
+            this.groupBox2.Location = new System.Drawing.Point(60, 126);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(351, 51);
             this.groupBox2.TabIndex = 3;
@@ -103,7 +103,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtEstado);
+            this.groupBox1.Controls.Add(this.cboestadoactividad);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtnombreactividad);
             this.groupBox1.Controls.Add(this.rtbdetalle);
@@ -113,17 +113,10 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(438, 108);
+            this.groupBox1.Size = new System.Drawing.Size(451, 108);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de la actividad";
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Location = new System.Drawing.Point(65, 76);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(138, 20);
-            this.txtEstado.TabIndex = 18;
             // 
             // label3
             // 
@@ -143,9 +136,9 @@
             // 
             // rtbdetalle
             // 
-            this.rtbdetalle.Location = new System.Drawing.Point(261, 22);
+            this.rtbdetalle.Location = new System.Drawing.Point(261, 24);
             this.rtbdetalle.Name = "rtbdetalle";
-            this.rtbdetalle.Size = new System.Drawing.Size(167, 74);
+            this.rtbdetalle.Size = new System.Drawing.Size(179, 74);
             this.rtbdetalle.TabIndex = 15;
             this.rtbdetalle.Text = "";
             // 
@@ -188,14 +181,26 @@
             this.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvActividades.Location = new System.Drawing.Point(12, 183);
             this.dgvActividades.Name = "dgvActividades";
-            this.dgvActividades.Size = new System.Drawing.Size(438, 138);
+            this.dgvActividades.Size = new System.Drawing.Size(451, 138);
             this.dgvActividades.TabIndex = 4;
+            this.dgvActividades.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActividades_CellDoubleClick);
+            // 
+            // cboestadoactividad
+            // 
+            this.cboestadoactividad.FormattingEnabled = true;
+            this.cboestadoactividad.Items.AddRange(new object[] {
+            "ACTIVA",
+            "INACTIVA"});
+            this.cboestadoactividad.Location = new System.Drawing.Point(65, 76);
+            this.cboestadoactividad.Name = "cboestadoactividad";
+            this.cboestadoactividad.Size = new System.Drawing.Size(138, 21);
+            this.cboestadoactividad.TabIndex = 18;
             // 
             // frmActividadesMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 329);
+            this.ClientSize = new System.Drawing.Size(475, 329);
             this.Controls.Add(this.dgvActividades);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -228,8 +233,8 @@
         private System.Windows.Forms.TextBox txtnombreactividad;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvActividades;
+        private System.Windows.Forms.ComboBox cboestadoactividad;
     }
 }

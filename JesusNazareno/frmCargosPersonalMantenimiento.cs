@@ -50,5 +50,12 @@ namespace JesusNazareno
             Car.CodigoCargo = int.Parse(txtcodigocargo.Text.ToString());
             BD.EliminarCargo(Car);
         }
+
+        private void dgvcargos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtcodigocargo.Text = dgvcargos.CurrentRow.Cells[0].Value.ToString();
+            txtnombrecargo.Text = dgvcargos.CurrentRow.Cells[1].Value.ToString();
+            cboestadocargo.SelectedItem = dgvcargos.CurrentRow.Cells[2].Value.ToString();
+        }
     }
 }

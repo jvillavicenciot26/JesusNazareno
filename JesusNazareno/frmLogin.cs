@@ -24,13 +24,13 @@ namespace JesusNazareno
             clsLogin log = new clsLogin(txtusuario.Text, txtclave.Text);
             clsAccesoPersonal BD = new clsAccesoPersonal();
             String nomper = BD.ConsultarUsuario(log);
-            if (nomper == "")
+            if (nomper == "" || nomper == null)
             {
-                MessageBox.Show("Error en credenciales", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ERROR EN CREDENCIALES", "ACCESO DENEGADO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Bienvenido " + nomper, "Acceso Concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("BIENVENIDO " + nomper, "ACCESO CONCEDIDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmPrincipal frmprinc = new frmPrincipal(nomper);
                 frmprinc.Show();
                 this.Hide();

@@ -100,7 +100,6 @@
             // 
             // txtcodigotipo
             // 
-            this.txtcodigotipo.Enabled = false;
             this.txtcodigotipo.Location = new System.Drawing.Point(66, 26);
             this.txtcodigotipo.Name = "txtcodigotipo";
             this.txtcodigotipo.Size = new System.Drawing.Size(177, 20);
@@ -172,14 +171,15 @@
             this.dtgtiporecurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgtiporecurso.Location = new System.Drawing.Point(270, 12);
             this.dtgtiporecurso.Name = "dtgtiporecurso";
-            this.dtgtiporecurso.Size = new System.Drawing.Size(175, 210);
+            this.dtgtiporecurso.Size = new System.Drawing.Size(363, 210);
             this.dtgtiporecurso.TabIndex = 3;
+            this.dtgtiporecurso.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgtiporecurso_CellDoubleClick);
             // 
             // frmTipodeRecursoMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 230);
+            this.ClientSize = new System.Drawing.Size(644, 230);
             this.Controls.Add(this.dtgtiporecurso);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

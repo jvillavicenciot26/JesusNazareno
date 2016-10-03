@@ -46,5 +46,16 @@ namespace JesusNazareno
             clsAccesoRecursos BD = new clsAccesoRecursos();
             dgvrecurso.DataSource = BD.FiltrarRecursos(buscar, parametro);
         }
+
+        private void dgvrecurso_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int codigo = int.Parse(dgvrecurso.CurrentRow.Cells[0].Value.ToString());
+            frmRecursosMantenimiento frmRecMan = Application.OpenForms.OfType<frmRecursosMantenimiento>().FirstOrDefault();
+            if (frmRecMan != null)
+            {
+                frmRecMan.codigobusqueda(codigo);
+            }
+            this.Close();
+        }
     }
 }

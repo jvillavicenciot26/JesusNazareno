@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCargosPersonalMantenimiento));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btneliminar = new System.Windows.Forms.Button();
             this.btnactualizar = new System.Windows.Forms.Button();
             this.btnregistrar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -39,7 +40,8 @@
             this.txtcodigocargo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvcargos = new System.Windows.Forms.DataGridView();
-            this.btneliminar = new System.Windows.Forms.Button();
+            this.cboestadocargo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcargos)).BeginInit();
@@ -51,12 +53,22 @@
             this.groupBox2.Controls.Add(this.btnactualizar);
             this.groupBox2.Controls.Add(this.btnregistrar);
             this.groupBox2.Controls.Add(this.btnNuevo);
-            this.groupBox2.Location = new System.Drawing.Point(12, 104);
+            this.groupBox2.Location = new System.Drawing.Point(12, 133);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(235, 81);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operaciones";
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.Location = new System.Drawing.Point(79, 48);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(67, 23);
+            this.btneliminar.TabIndex = 3;
+            this.btneliminar.Text = "Eliminar";
+            this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // btnactualizar
             // 
@@ -89,13 +101,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cboestadocargo);
             this.groupBox1.Controls.Add(this.txtnombrecargo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtcodigocargo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(235, 86);
+            this.groupBox1.Size = new System.Drawing.Size(235, 115);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del tipo de recurso";
@@ -118,7 +132,6 @@
             // 
             // txtcodigocargo
             // 
-            this.txtcodigocargo.Enabled = false;
             this.txtcodigocargo.Location = new System.Drawing.Point(66, 26);
             this.txtcodigocargo.Name = "txtcodigocargo";
             this.txtcodigocargo.Size = new System.Drawing.Size(152, 20);
@@ -138,24 +151,35 @@
             this.dgvcargos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvcargos.Location = new System.Drawing.Point(253, 12);
             this.dgvcargos.Name = "dgvcargos";
-            this.dgvcargos.Size = new System.Drawing.Size(162, 173);
+            this.dgvcargos.Size = new System.Drawing.Size(345, 202);
             this.dgvcargos.TabIndex = 5;
+            this.dgvcargos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcargos_CellDoubleClick);
             // 
-            // btneliminar
+            // cboestadocargo
             // 
-            this.btneliminar.Location = new System.Drawing.Point(79, 48);
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(67, 23);
-            this.btneliminar.TabIndex = 3;
-            this.btneliminar.Text = "Eliminar";
-            this.btneliminar.UseVisualStyleBackColor = true;
-            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
+            this.cboestadocargo.FormattingEnabled = true;
+            this.cboestadocargo.Items.AddRange(new object[] {
+            "ACTIVO",
+            "INACTIVO"});
+            this.cboestadocargo.Location = new System.Drawing.Point(66, 79);
+            this.cboestadocargo.Name = "cboestadocargo";
+            this.cboestadocargo.Size = new System.Drawing.Size(152, 21);
+            this.cboestadocargo.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Estado: ";
             // 
             // frmCargosPersonalMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 194);
+            this.ClientSize = new System.Drawing.Size(609, 226);
             this.Controls.Add(this.dgvcargos);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -188,5 +212,7 @@
         private System.Windows.Forms.Button btnactualizar;
         private System.Windows.Forms.DataGridView dgvcargos;
         private System.Windows.Forms.Button btneliminar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cboestadocargo;
     }
 }

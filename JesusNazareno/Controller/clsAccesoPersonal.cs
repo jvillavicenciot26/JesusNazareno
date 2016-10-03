@@ -190,5 +190,63 @@ namespace JesusNazareno.Controller
             }
             return dtComboCargos;
         }
+
+        public clsPersonal BuscarPersonal(int codigo)
+        {
+            con.Open();
+            clsPersonal Per = new clsPersonal();
+            MySqlCommand mcBusPersonal;
+            try
+            {
+                mcBusPersonal = new MySqlCommand("buscarpersonal", con);
+                mcBusPersonal.CommandType = CommandType.StoredProcedure;
+                mcBusPersonal.Parameters.AddWithValue("@codigo", codigo);
+                MySqlDataReader mdrPersonal = mcBusPersonal.ExecuteReader();
+                if (mdrPersonal.HasRows)
+                {
+                    while (mdrPersonal.Read())
+                    {
+                        Per.NombrePersonal = mdrPersonal.GetString(0);
+                        Per.ApePatPersonal = mdrPersonal.GetString(1);
+                        Per.ApeMatPersonal = mdrPersonal.GetString(2);
+                        int email = mdrPersonal.GetOrdinal("EmailPersonal");
+                        if(mdrPersonal.IsDBNull(email))
+                        {
+                            MessageBox.Show("NO EXISTE EMAIL PARA ESTE PERSONAL", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            Per.EMailPersonal = string.Empty;
+                        }
+                        else
+                        {
+                            Per.EMailPersonal = mdrPersonal.GetString(3);
+                        }
+                        //Per.EMailPersonal = mdrPersonal.IsDBNull(email) ? string.Empty : mdrPersonal.GetString(3);
+                        int fono = mdrPersonal.GetOrdinal("FonoPersonal");
+                        if (mdrPersonal.IsDBNull(fono))
+                        {
+                            MessageBox.Show("NO EXISTE TELEFONO PARA ESTE PERSONAL", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            Per.FonoPersonal = string.Empty;
+                        }
+                        else
+                        {
+                            Per.FonoPersonal = mdrPersonal.GetString(4);
+                        }
+                        //Per.FonoPersonal = mdrPersonal.IsDBNull(fono) ? string.Empty : mdrPersonal.GetString(4);
+                        Per.EstadoPersonal = mdrPersonal.GetString(5);
+                        Per.IdCargoPersonal = mdrPersonal.GetInt32(6);
+                    }
+                    MessageBox.Show("DATOS ENCONTRADOS", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("NO EXISTEN DATOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                mdrPersonal.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            return Per;
+        }
     }
 }

@@ -160,5 +160,61 @@ namespace JesusNazareno.Controller
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        public clsRecurso BuscarRecurso(int codigo)
+        {
+            con.Open();
+            clsRecurso Rec = new clsRecurso();
+            MySqlCommand mcBusRecurso;
+            try
+            {
+                mcBusRecurso = new MySqlCommand("buscarrecurso", con);
+                mcBusRecurso.CommandType = CommandType.StoredProcedure;
+                mcBusRecurso.Parameters.AddWithValue("@codigo", codigo);
+                MySqlDataReader mdrRecurso = mcBusRecurso.ExecuteReader();
+                if (mdrRecurso.HasRows)
+                {
+                    while (mdrRecurso.Read())
+                    {
+                        Rec.NombreRecurso = mdrRecurso.GetString(0);
+                        int serie = mdrRecurso.GetOrdinal("SerieRecurso");
+                        if (mdrRecurso.IsDBNull(serie))
+                        {
+                            MessageBox.Show("NO EXISTE SERIE PARA ESTE PERSONAL", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            Rec.SerieRecurso = string.Empty;
+                        }
+                        else
+                        {
+                            Rec.SerieRecurso = mdrRecurso.GetString(1);
+                        }
+                        //Rec.SerieRecurso = mdrRecurso.IsDBNull(serie) ? string.Empty : mdrRecurso.GetString(1);
+                        Rec.EstadoRecurso = mdrRecurso.GetString(2);
+                        int marca = mdrRecurso.GetOrdinal("MarcaRecurso");
+                        if (mdrRecurso.IsDBNull(marca))
+                        {
+                            MessageBox.Show("NO EXISTE MARCA PARA ESTE PERSONAL", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            Rec.MarcaRecurso = string.Empty;
+                        }
+                        else
+                        {
+                            Rec.MarcaRecurso = mdrRecurso.GetString(3);
+                        }
+                        //Rec.MarcaRecurso = mdrRecurso.IsDBNull(marca) ? string.Empty : mdrRecurso.GetString(3);
+                        Rec.CodigoTipRecurso = mdrRecurso.GetInt32(4);
+                    }
+                    MessageBox.Show("DATOS ENCONTRADOS", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("NO EXISTEN DATOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                mdrRecurso.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            return Rec;
+        }
     }
 }

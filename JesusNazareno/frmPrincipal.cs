@@ -31,7 +31,7 @@ namespace JesusNazareno
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void registroToolStripMenuItem1_Click(object sender, EventArgs e)

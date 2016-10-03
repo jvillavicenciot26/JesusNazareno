@@ -27,7 +27,9 @@ namespace JesusNazareno
 
         private void frmPersonalMantenimiento_Load(object sender, EventArgs e)
         {
-
+            //clsAccesoPersonal BD = new clsAccesoPersonal();
+            //cbocargopersonal.DataSource = BD.LlenarComboCargos();
+            //cbocargopersonal.ValueMember = "NombreCargo";
         }
 
         private void btnrGuardar_Click(object sender, EventArgs e)
@@ -47,9 +49,9 @@ namespace JesusNazareno
 
         private void btnnuevo_Click(object sender, EventArgs e)
         {
-            clsAccesoPersonal BD = new clsAccesoPersonal();
-            cbocargopersonal.DataSource = BD.LlenarComboCargos();
-            cbocargopersonal.ValueMember = "NombreCargo";
+            //clsAccesoPersonal BD = new clsAccesoPersonal();
+            //cbocargopersonal.DataSource = BD.LlenarComboCargos();
+            //cbocargopersonal.ValueMember = "NombreCargo";
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -73,6 +75,25 @@ namespace JesusNazareno
             clsAccesoPersonal BD = new clsAccesoPersonal();
             Per.CodigoPersonal = int.Parse(txtcodpersonal.Text);
             BD.EliminarPersonal(Per);
+        }
+
+        public void codigobusqueda (int codigo)
+        {
+            txtcodpersonal.Text = codigo.ToString();
+            clsAccesoPersonal BD = new clsAccesoPersonal();
+            clsPersonal Per = new clsPersonal();
+            Per = BD.BuscarPersonal(codigo);
+            txtnombres.Text = Per.NombrePersonal;
+            txtapepaterno.Text = Per.ApePatPersonal;
+            txtapematerno.Text = Per.ApeMatPersonal;
+            txtmail.Text = Per.EMailPersonal;
+            cboEstado.SelectedItem = Per.EstadoPersonal;
+            cbocargopersonal.SelectedIndex = (Per.IdCargoPersonal - 1);
+        }
+
+        private void txtcodpersonal_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

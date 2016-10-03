@@ -45,7 +45,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbobuscar);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(51, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(476, 55);
             this.groupBox1.TabIndex = 0;
@@ -95,14 +95,16 @@
             this.dgvpersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvpersonal.Location = new System.Drawing.Point(12, 73);
             this.dgvpersonal.Name = "dgvpersonal";
-            this.dgvpersonal.Size = new System.Drawing.Size(476, 192);
+            this.dgvpersonal.Size = new System.Drawing.Size(563, 192);
             this.dgvpersonal.TabIndex = 1;
+            this.dgvpersonal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvpersonal_CellContentClick);
+            this.dgvpersonal.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvpersonal_CellDoubleClick);
             // 
             // frmPersonalBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 277);
+            this.ClientSize = new System.Drawing.Size(586, 277);
             this.Controls.Add(this.dgvpersonal);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

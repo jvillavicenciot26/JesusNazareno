@@ -47,7 +47,7 @@ namespace JesusNazareno
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbobuscar);
-            this.groupBox1.Location = new System.Drawing.Point(67, 12);
+            this.groupBox1.Location = new System.Drawing.Point(129, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(446, 55);
             this.groupBox1.TabIndex = 2;
@@ -98,14 +98,15 @@ namespace JesusNazareno
             this.dgvrecurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvrecurso.Location = new System.Drawing.Point(12, 73);
             this.dgvrecurso.Name = "dgvrecurso";
-            this.dgvrecurso.Size = new System.Drawing.Size(563, 194);
+            this.dgvrecurso.Size = new System.Drawing.Size(667, 194);
             this.dgvrecurso.TabIndex = 3;
+            this.dgvrecurso.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvrecurso_CellDoubleClick);
             // 
             // frmRecursoBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 279);
+            this.ClientSize = new System.Drawing.Size(691, 279);
             this.Controls.Add(this.dgvrecurso);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

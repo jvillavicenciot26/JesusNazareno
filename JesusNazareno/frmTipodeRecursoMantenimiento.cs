@@ -52,5 +52,12 @@ namespace JesusNazareno
             TipRec.CodigoTipoRecurso = int.Parse(txtcodigotipo.Text);
             BD.EliminarTipoRecurso(TipRec);
         }
+
+        private void dtgtiporecurso_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtcodigotipo.Text = dtgtiporecurso.CurrentRow.Cells[0].Value.ToString();
+            txtnombretipo.Text = dtgtiporecurso.CurrentRow.Cells[1].Value.ToString();
+            cboestadotiporecurso.SelectedItem = dtgtiporecurso.CurrentRow.Cells[2].Value.ToString();
+        }
     }
 }

@@ -52,5 +52,13 @@ namespace JesusNazareno
             Act.CodigoActividad = int.Parse(txtcodigoactividad.Text);
             BD.EliminarActividad(Act);
         }
+
+        private void dgvActividades_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtcodigoactividad.Text = dgvActividades.CurrentRow.Cells[0].Value.ToString();
+            txtnombreactividad.Text = dgvActividades.CurrentRow.Cells[1].Value.ToString();
+            rtbdetalle.Text = dgvActividades.CurrentRow.Cells[2].Value.ToString();
+            cboestadoactividad.SelectedItem = dgvActividades.CurrentRow.Cells[3].Value.ToString();
+        }
     }
 }
